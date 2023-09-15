@@ -1,0 +1,19 @@
+userMessage and botReply arrays: These arrays store pairs of user messages and corresponding bot replies. Each sub-array in userMessage contains alternative user inputs, and the corresponding sub-array in botReply contains the bot's responses. The bot selects a response based on the user's input.
+
+alternative array: This array contains alternative responses that the bot can use if it doesn't find a match in the userMessage array.
+
+synth object: This object is used for text-to-speech synthesis, allowing the bot to speak its responses.
+
+voiceControl function: This function takes a string as input and uses the SpeechSynthesisUtterance interface to speak the string with a specific voice configuration.
+
+sendMessage function: This function is called when the user submits a message. It retrieves the user's input, trims it, and then calls the output function with the input.
+
+Event listeners: There is an event listener that listens for the Enter key press, allowing the user to submit a message by pressing Enter.
+
+output function: This function processes the user's input, converts it to lowercase, and removes special characters. It then calls the compare function to find a matching response from the userMessage and botReply arrays or selects an alternative response.
+
+compare function: This function searches for a match between the user's input and the userMessage array. If a match is found, it selects a corresponding response from the botReply array. If no match is found, it calls the containMessageCheck function.
+
+containMessageCheck function: This function checks if the user's input contains specific keywords (e.g., "bye," "night") and provides predefined responses if a match is found.
+
+addChat function: This function adds the user's input and the bot's response to the chat interface, including a scrollable message section. It also calls the voiceControl function to speak the bot's response.
